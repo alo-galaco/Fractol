@@ -4,8 +4,7 @@ INCLUDES = -Iincludes
 OBJS_DIR = objects
 SRCS = main.c
 OBJS = $(addprefix objects/, $(SRCS:.c=.o))
-FLAGS = -Wall -Werror -Wextra
-LIBFT = ./libft/libft.a
+FLAGS = -Wall -Werror -Wextra 
 
 CC = cc
 MLX = -lmlx -lX11 -Imlx -lXext
@@ -20,9 +19,11 @@ $(NAME): $(OBJS)
 all:$(NAME)
 
 clean:
+	make clean -C ./libft
 	rm -rf $(OBJS)
 
 fclean:clean
+	make fclean -C ./libft
 	rm -rf  $(NAME)
 
 re: fclean all
