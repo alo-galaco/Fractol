@@ -4,7 +4,7 @@ int start_image(t_data *data)
 {
     data->image.new_image = mlx_new_image(data->ptr, WIDTH, HEIGHT);
     data->image.address = mlx_get_data_addr(data->image.new_image, &data->image.bits_per_pixel, &data->image.line_lenght, &data->image.endian);
-
+	mandelbrot(data);
     mlx_put_image_to_window(data->ptr, data->window, data->image.new_image, 0, 0);
     mlx_destroy_image(data->ptr, data->image.new_image);
     return(0);
@@ -14,6 +14,7 @@ int	close_program(t_data *data)
 {
 	mlx_destroy_window(data->ptr, data->window);
 	mlx_destroy_display(data->ptr);
+	free(data->ptr);
 	exit(0);
 	return(0);
 }
@@ -93,11 +94,12 @@ void	mandelbrot(t_data *data)
 int	start_window(t_data *data)
 {
 	data->ptr = mlx_init();
+	if(!data->ptr)
+		return(1);
 	data->window = mlx_new_window(data->ptr, WIDTH, HEIGHT, "fractol");
 	if(!data->window)
 	{
-		mlx_destroy_display(data->ptr);
-		free(data);
+		close_program(data);
 		return(1);
 	}
 	the_image(data);
@@ -108,14 +110,37 @@ int	start_window(t_data *data)
 	return(0);
 }
 
-int	main()
+static void message_help(void)
+{
+	ft_putendl_fd("Please, choose one fractol:/n", 1);
+	ft_putendl_fd("Maldelbrot/n", 1);
+	ft_putendl_fd("Julia/n", 1);
+}
+
+int check_arg(int argc, char *argv[], t_data *data)
+{
+	if(argc == 2 && ft_strncmp("Mandelbrot", argv[1], 10) == 0)
+	{
+		data->fractol_set = 'm';
+		return(1);
+	}
+	return(0);
+}
+
+int	main(int argc, char *argv[])
 {
 	t_data  *data;
 
-	data = (t_data *)malloc(sizeof(t_data) * 2);
-	if (!data)
-		return (1);
-	start_window(data);
-	free(data);
+	if(argc == 2)
+	{
+		data = (t_data *)malloc(sizeof(t_data) * 2);
+		if (!data)
+			return (1);
+		check_arg(argc, argv, data);
+		start_window(data);
+		free(data);
+	}
+	else
+		message_help();
 	return (0);
 }

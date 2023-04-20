@@ -4,19 +4,25 @@ INCLUDES = -Iincludes
 OBJS_DIR = objects
 SRCS = main.c
 OBJS = $(addprefix objects/, $(SRCS:.c=.o))
-FLAGS = -Wall -Werror -Wextra 
+
+LIBFT_DIR = ./libft/
+LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
 
 CC = cc
-MLX = -lmlx -lX11 -Imlx -lXext
+FLAGS = -Wall -Werror -Wextra 
+FLAGS_MLX = -lmlx -lX11 -Imlx -lXext
 
-objects/%.o: source/%.c
+objects/%.o: source/%.c includes/fractol.h
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(INCLUDES) $^ $(MLX) -o $@
+	$(CC) $(FLAGS) $(INCLUDES) $^ $(LIBFT) $(FLAGS_MLX) -o $@
 
-all:$(NAME)
+all: libft $(NAME)
+
+libft:
+	@make -C ./libft
 
 clean:
 	make clean -C ./libft

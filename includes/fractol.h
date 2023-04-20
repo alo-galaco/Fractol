@@ -1,8 +1,8 @@
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
-#define WIDTH 1024
-#define HEIGHT 768
+#define WIDTH 800
+#define HEIGHT 800
 #define ERROR 1
 #define MAX_INTER 50
 #define CX_MAX 2
@@ -39,6 +39,7 @@ typedef struct s_data
 	void		*window;
     t_image 	image;
 	int			color;
+	char		fractol_set;
 
 }				t_data;
 
