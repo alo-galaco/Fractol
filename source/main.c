@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:55:39 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 16:23:35 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:59:15 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void	the_image(t_data *data)
 	data->image.y_max = CY_MAX;
 	data->image.y_min = CY_MIN;
 	data->color = 0xFF0000;
-	data->julia_set_image = 0;
+	data->image.x_julia = 0.285;
+	data->image.y_julia = 0.01;
+	data->julia_set_image = 0xFF0000;
 	start_image(data);
 }
 

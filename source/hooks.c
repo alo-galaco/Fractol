@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:21:29 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 16:22:53 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/21 18:05:19 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ int	mouse_zoom(int keysim, int x, int y, t_data *data)
 	y = 1;
 	if (keysim == 4 && x)
 	{
-		data->image.x_max -= data->image.x_max * 0.1;
-		data->image.x_min -= data->image.x_min * 0.1;
-		data->image.y_max -= data->image.y_max * 0.1;
-		data->image.y_min -= data->image.y_min * 0.1;
+		data->image.x_max -= data->image.x_max * 0.115;
+		data->image.x_min -= data->image.x_min * 0.115;
+		data->image.y_max -= data->image.y_max * 0.115;
+		data->image.y_min -= data->image.y_min * 0.115;
 	}
 	if (keysim == 5 && y)
 	{
-		data->image.x_max += data->image.x_max * 0.1;
-		data->image.x_min += data->image.x_min * 0.1;
-		data->image.y_max += data->image.y_max * 0.1;
-		data->image.y_min += data->image.y_min * 0.1;
+		data->image.x_max += data->image.x_max * 0.115;
+		data->image.x_min += data->image.x_min * 0.115;
+		data->image.y_max += data->image.y_max * 0.115;
+		data->image.y_min += data->image.y_min * 0.115;
 	}
 	return (0);
 }

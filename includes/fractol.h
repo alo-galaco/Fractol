@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:52:53 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 16:26:17 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:49:58 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_image
 	double		x_min;
 	double		y_max;
 	double		y_min;
+	double		x_julia;
+	double		y_julia;
 }				t_image;
 
 typedef struct s_data
@@ -48,21 +50,19 @@ typedef struct s_data
 	t_image		image;
 	int			color;
 	char		fractol_set;
-	double		x_julia;
-	double		y_julia;
-	char		julia_set_image;
+	int			julia_set_image;
 }				t_data;
 
-int		start_window(t_data *data);
 void	the_image(t_data *data);
 void	mandelbrot(t_data *data);
-int		key_press(int keysim, t_data *data);
+void	message_help(void);
+void	julia(t_data *data);
 void	image_pixel_put(t_image *image, int x, int y, int color);
+int		start_window(t_data *data);
+int		key_press(int keysim, t_data *data);
 int		close_program(t_data	*data);
 int		start_image(t_data	*data);
 int		check_arg(int argc, char *argv[], t_data *data);
-void	message_help(void);
-void	julia(t_data *data);
 int		mouse_zoom(int keysim, int x, int y, t_data *data);
 
 #endif
