@@ -2,8 +2,12 @@ NAME = fractol
 
 INCLUDES = -Iincludes
 OBJS_DIR = objects
-SRCS = main.c
 OBJS = $(addprefix objects/, $(SRCS:.c=.o))
+SRCS =	main.c \
+		fractol_mandelbrot.c \
+		fractol_julia.c \
+		check_arg.c
+
 
 LIBFT_DIR = ./libft/
 LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
