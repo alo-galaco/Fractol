@@ -12,14 +12,14 @@ CC = cc
 FLAGS = -Wall -Werror -Wextra 
 FLAGS_MLX = -lmlx -lX11 -Imlx -lXext
 
+all: libft $(NAME)
+
 objects/%.o: source/%.c includes/fractol.h
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(INCLUDES) $^ $(LIBFT) $(FLAGS_MLX) -o $@
-
-all: libft $(NAME)
 
 libft:
 	@make -C ./libft
@@ -33,3 +33,5 @@ fclean:clean
 	rm -rf  $(NAME)
 
 re: fclean all
+
+.PHONY: all libft clean fclean re
