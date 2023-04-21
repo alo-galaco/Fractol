@@ -6,8 +6,8 @@ OBJS = $(addprefix objects/, $(SRCS:.c=.o))
 SRCS =	main.c \
 		fractol_mandelbrot.c \
 		fractol_julia.c \
-		check_arg.c
-
+		check_arg.c \
+		hooks.c
 
 LIBFT_DIR = ./libft/
 LIBFT = $(addprefix $(LIBFT_DIR), libft.a)

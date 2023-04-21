@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:55:39 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 15:53:38 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:23:35 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	start_image(t_data *data)
 {
 	data->image.new_image = mlx_new_image(data->ptr, WIDTH, HEIGHT);
 	data->image.address = mlx_get_data_addr(data->image.new_image,
-		&data->image.bits_per_pixel, &data->image.line_lenght, &data->image.endian);
+			&data->image.bits_per_pixel, &data->image.line_lenght,
+			&data->image.endian);
 	if (data->fractol_set == 'm')
 		mandelbrot(data);
 	else if (data->fractol_set == 'j')
 		julia(data);
-	mlx_put_image_to_window(data->ptr, data->window, data->image.new_image, 0, 0);
+	mlx_put_image_to_window(data->ptr, data->window,
+		data->image.new_image, 0, 0);
 	mlx_destroy_image(data->ptr, data->image.new_image);
 	return (0);
 }
@@ -35,18 +37,12 @@ int	close_program(t_data *data)
 	return (0);
 }
 
-int	key_press(int keysim, t_data *data)
-{
-	if (keysim == ESC || keysim == Q)
-		close_program(data);
-	return (0);
-}
-
 void	image_pixel_put(t_image *image, int x, int y, int color)
 {
 	char	*pixel;
 
-	pixel = image->address + (y * image->line_lenght + x * (image->bits_per_pixel / 8));
+	pixel = image->address + (y * image->line_lenght + x
+			* (image->bits_per_pixel / 8));
 	*(int *)pixel = color;
 }
 
@@ -59,28 +55,6 @@ void	the_image(t_data *data)
 	data->color = 0xFF0000;
 	data->julia_set_image = 0;
 	start_image(data);
-}
-
-int	mouse_zoom(int	keysim, int	x, int	y, t_data	*data)
-{
-	x = 1;
-	y = 1;
-
-	if(keysim == 4 && x)
-	{
-		data->image.x_max -= data->image.x_max * 0.1;
-		data->image.x_min -= data->image.x_min * 0.1;
-		data->image.y_max -= data->image.y_max * 0.1;
-		data->image.y_min -= data->image.y_min * 0.1;
-	}
-	if (keysim == 5 && y)
-	{
-		data->image.x_max += data->image.x_max * 0.1;
-		data->image.x_min += data->image.x_min * 0.1;
-		data->image.y_max += data->image.y_max * 0.1;
-		data->image.y_min += data->image.y_min * 0.1;
-	}
-	return (0);
 }
 
 int	start_window(t_data *data)

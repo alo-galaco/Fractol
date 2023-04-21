@@ -6,15 +6,15 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:52:53 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 15:54:33 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:26:17 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 950
+# define HEIGHT 950
 # define MAX_INTER 50
 # define CX_MAX 2
 # define CX_MIN -2
@@ -63,6 +63,6 @@ int		start_image(t_data	*data);
 int		check_arg(int argc, char *argv[], t_data *data);
 void	message_help(void);
 void	julia(t_data *data);
-int		mouse_zoom(int	keysim, int	x, int	y, t_data	*data);
+int		mouse_zoom(int keysim, int x, int y, t_data *data);
 
 #endif

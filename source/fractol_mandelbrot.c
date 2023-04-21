@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:13:55 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 14:39:23 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:17:41 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	mandelbrot(t_data *data)
 		x = 0;
 		while (x < WIDTH)
 		{
-			cx = data->image.x_min + x 
+			cx = data->image.x_min + x
 				* (data->image.x_max - data->image.x_min) / WIDTH;
 			image_pixel_put(&data->image, x, y, set_mandelbrot(cx, cy, data));
 			x++;
