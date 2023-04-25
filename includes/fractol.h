@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:52:53 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 15:06:13 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:26:57 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@ typedef struct s_data
 	double		y_julia;
 }				t_data;
 
-void	the_image(t_data *data);
-void	mandelbrot(t_data *data);
-void	message_help(void);
-void	julia(t_data *data);
-void	image_pixel_put(t_image *image, int x, int y, int color);
-int		start_window(t_data *data);
-int		key_press(int keysim, t_data *data);
-int		close_program(t_data	*data);
-int		start_image(t_data	*data);
-int		check_arg(int argc, char *argv[], t_data *data);
-int		mouse_zoom(int keysim, int x, int y, t_data *data);
-int		julia_mouse(int x, int y, t_data *data);
+void		the_image(t_data *data);
+void		mandelbrot(t_data *data);
+void		julia(t_data *data);
+void		message_help(void);
+void		image_pixel_put(t_image *image, int x, int y, int color);
+int			start_window(t_data *data);
+int			close_program(t_data	*data);
+int			start_image(t_data	*data);
+int			check_arg(int argc, char *argv[], t_data *data);
+int			key_press(int keysim, t_data *data);
+int			mouse_zoom(int keysim, int x, int y, t_data *data);
+int			julia_mouse(int x, int y, t_data *data);
 long double	ft_atof(const char *nptr);
 
 #endif

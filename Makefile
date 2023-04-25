@@ -31,7 +31,7 @@ libft:
 
 clean:
 	make clean -C ./libft
-	rm -rf $(OBJS)
+	rm -rf $(OBJS_DIR)
 
 fclean:clean
 	make fclean -C ./libft

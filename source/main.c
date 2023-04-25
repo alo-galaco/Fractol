@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:55:39 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 15:25:24 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:32:52 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	start_image(t_data *data)
 {
-	data->image.new_image = mlx_newint		key_press(int keysim, t_data *data);_image(data->ptr, WIDTH, HEIGHT);
+	data->image.new_image = mlx_new_image(data->ptr, WIDTH, HEIGHT);
 	data->image.address = mlx_get_data_addr(data->image.new_image,
 			&data->image.bits_per_pixel, &data->image.line_lenght,
 			&data->image.endian);
