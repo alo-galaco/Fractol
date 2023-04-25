@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:52:53 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 14:07:20 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:06:13 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # define WIDTH 950
 # define HEIGHT 950
-# define MAX_INTER 50
+# define MAX_INTER 70
 # define CX_MAX 2
 # define CX_MIN -2
 # define CY_MAX 2
 # define CY_MIN -2
 # define ESC 65307
 # define Q 113
+# define R 114
+# define SPACE 32
 
 # include <stdlib.h>
 # include <unistd.h>

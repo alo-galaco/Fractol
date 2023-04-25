@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:21:29 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 14:04:22 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:37:53 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ int	key_press(int keysim, t_data *data)
 {
 	if (keysim == ESC || keysim == Q)
 		close_program(data);
+	else if (keysim == R)
+		the_image(data);
+	else if (keysim == SPACE && data->fractol_set == 'j')
+		data->julia_set_image = 1;
 	return (0);
 }
 
@@ -42,7 +46,7 @@ int	mouse_zoom(int keysim, int x, int y, t_data *data)
 
 int	julia_mouse(int x, int y, t_data *data)
 {
-	if(data->fractol_set == 'j' && data->julia_set_image == 0)
+	if (data->fractol_set == 'j' && data->julia_set_image == 0)
 	{
 		data->x_julia = (data->image.x_max - data->image.x_min)
 			/ WIDTH * (x - WIDTH / 2);
