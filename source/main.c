@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:55:39 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 15:11:33 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:25:24 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	start_image(t_data *data)
 {
-	data->image.new_image = mlx_new_image(data->ptr, WIDTH, HEIGHT);
+	data->image.new_image = mlx_newint		key_press(int keysim, t_data *data);_image(data->ptr, WIDTH, HEIGHT);
 	data->image.address = mlx_get_data_addr(data->image.new_image,
 			&data->image.bits_per_pixel, &data->image.line_lenght,
 			&data->image.endian);
@@ -45,18 +45,6 @@ void	image_pixel_put(t_image *image, int x, int y, int color)
 	pixel = image->address + (y * image->line_lenght + x
 			* (image->bits_per_pixel / 8));
 	*(int *)pixel = color;
-}
-
-void	the_image(t_data *data)
-{
-	data->image.x_max = CX_MAX;
-	data->image.x_min = CX_MIN;
-	data->image.y_max = CY_MAX;
-	data->image.y_min = CY_MIN;
-	data->color = 0xFFFF00;
-	data->julia_color = 0xFF00F0;
-	data->julia_set_image = 0;
-	start_image(data);
 }
 
 int	start_window(t_data *data)

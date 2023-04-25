@@ -6,11 +6,23 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:31:34 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 12:05:40 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:23:00 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void	the_image(t_data *data)
+{
+	data->image.x_max = CX_MAX;
+	data->image.x_min = CX_MIN;
+	data->image.y_max = CY_MAX;
+	data->image.y_min = CY_MIN;
+	data->color = 0xFFFF00;
+	data->julia_color = 0xFF0000;
+	data->julia_set_image = 0;
+	start_image(data);
+}
 
 long double	ft_atof(const char *nptr)
 {
