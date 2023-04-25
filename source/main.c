@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:55:39 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 17:59:15 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:11:22 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	close_program(t_data *data)
 	mlx_destroy_window(data->ptr, data->window);
 	mlx_destroy_display(data->ptr);
 	free(data->ptr);
+	free(data);
 	exit(0);
 	return (0);
 }
@@ -52,10 +53,8 @@ void	the_image(t_data *data)
 	data->image.x_min = CX_MIN;
 	data->image.y_max = CY_MAX;
 	data->image.y_min = CY_MIN;
-	data->color = 0xFF0000;
-	data->image.x_julia = 0.285;
-	data->image.y_julia = 0.01;
-	data->julia_set_image = 0xFF0000;
+	data->color = 0x0000FF;
+	data->julia_set_image = 0xFF00FF;
 	start_image(data);
 }
 
@@ -83,13 +82,13 @@ int	main(int argc, char *argv[])
 {
 	t_data	*data;
 
-	if (argc == 2)
+	if (argc == 2 || argc == 4)
 	{
 		data = (t_data *)malloc(sizeof(t_data) * 2);
 		if (!data)
 			return (1);
-		check_arg(argc, argv, data);
-		start_window(data);
+		if (check_arg(argc, argv, data))
+			start_window(data);
 		free(data);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:27:16 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/21 17:56:54 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:11:01 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	message_help(void)
 {
-	ft_putendl_fd("Please, choose a fractol:", 1);
-	ft_putendl_fd("Maldelbrot", 1);
-	ft_putendl_fd("Julia", 1);
+	ft_putendl_fd("=== Please, choose a fractol ===", 1);
+	ft_putendl_fd("1. Maldelbrot", 1);
+	ft_putendl_fd("2. Julia number1 number2", 1);
+	ft_putendl_fd("The numbers need to be between -2.0 and 2.0", 1);
 }
 
 int	check_arg(int argc, char *argv[], t_data *data)
@@ -26,10 +27,15 @@ int	check_arg(int argc, char *argv[], t_data *data)
 		data->fractol_set = 'm';
 		return (1);
 	}
-	else if (argc == 2 && ft_strncmp("Julia", argv[1], 5) == 0)
+	else if (argc == 4 && ft_strncmp("Julia", argv[1], 5) == 0
+		&& ft_atof(argv[2]) >= -2 && ft_atof(argv[2]) <= 2
+		&& ft_atof(argv[3]) >= -2 && ft_atof(argv[3]) <= 2)
 	{
 		data->fractol_set = 'j';
+		data->x_julia = ft_atof(argv[2]);
+		data->y_julia = ft_atof(argv[3]);
 		return (1);
 	}
+	message_help();
 	return (0);
 }
