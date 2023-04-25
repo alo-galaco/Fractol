@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:55:39 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 12:11:22 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:06:56 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	the_image(t_data *data)
 	data->image.x_min = CX_MIN;
 	data->image.y_max = CY_MAX;
 	data->image.y_min = CY_MIN;
-	data->color = 0x0000FF;
-	data->julia_set_image = 0xFF00FF;
+	data->color = 0xFFFF00;
+	data->julia_color = 0xFF00FF;
+	data->julia_set_image = 0;
 	start_image(data);
 }
 
@@ -71,6 +72,7 @@ int	start_window(t_data *data)
 	}
 	the_image(data);
 	mlx_mouse_hook(data->window, mouse_zoom, data);
+	mlx_hook(data->window, 6, 1L << 6, julia_mouse, data);
 	mlx_hook(data->window, 2, 1L << 0, key_press, data);
 	mlx_hook(data->window, 17, 1L << 17, close_program, data);
 	mlx_loop_hook(data->ptr, start_image, data);

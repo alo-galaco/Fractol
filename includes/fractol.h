@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:52:53 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 12:38:52 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:07:20 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_data
 	t_image		image;
 	int			color;
 	char		fractol_set;
+	int			julia_color;
 	int			julia_set_image;
 	double		x_julia;
 	double		y_julia;
@@ -64,6 +65,7 @@ int		close_program(t_data	*data);
 int		start_image(t_data	*data);
 int		check_arg(int argc, char *argv[], t_data *data);
 int		mouse_zoom(int keysim, int x, int y, t_data *data);
+int		julia_mouse(int x, int y, t_data *data);
 long double	ft_atof(const char *nptr);
 
 #endif

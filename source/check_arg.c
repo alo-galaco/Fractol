@@ -6,7 +6,7 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:27:16 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 12:11:01 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:00:31 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	message_help(void)
 {
 	ft_putendl_fd("=== Please, choose a fractol ===", 1);
-	ft_putendl_fd("1. Maldelbrot", 1);
-	ft_putendl_fd("2. Julia number1 number2", 1);
-	ft_putendl_fd("The numbers need to be between -2.0 and 2.0", 1);
+	ft_putendl_fd("1. Maldelbrot\n", 1);
+	ft_putendl_fd("2. Julia number1 number2\n", 1);
+	ft_putendl_fd("The numbers need to be between -2.0 and 2.0\n", 1);
+	ft_putendl_fd("Suger: -0.8 0.156 | -0.4 0.6 | 0.285 0 | 0.45 0.1428\n", 1);
 }
 
 int	check_arg(int argc, char *argv[], t_data *data)

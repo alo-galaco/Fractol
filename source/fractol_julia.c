@@ -6,12 +6,11 @@
 /*   By: flcristi <flcristi@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:28:43 by flcristi          #+#    #+#             */
-/*   Updated: 2023/04/25 12:38:03 by flcristi         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:48:46 by flcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-#include <stdio.h>
 
 static int	set_julia(double cx, double cy, t_data *data)
 {
@@ -23,22 +22,19 @@ static int	set_julia(double cx, double cy, t_data *data)
 	iteration = 0;
 	xz = cx;
 	yz = cy;
-	while (iteration < MAX_INTER)
+	while (xz * xz + yz * yz < 4 && iteration < MAX_INTER)
 	{
 		temp_z = xz * xz - yz * yz + data->x_julia;
 		yz = 2 * xz * yz - data->y_julia;
 		xz = temp_z;
-		if(xz * xz + yz * yz > 4)
-			break;
 		iteration++;
 	}
 	if (iteration == MAX_INTER)
-	{
 		return (0x000000);
-		printf("xxx");
-	}
+	else if (iteration == 0)
+		return (data->julia_color * 1 * 10);
 	else
-		return (iteration * 255);
+		return (data->julia_color * iteration * 10);
 }
 
 void	julia(t_data *data)
